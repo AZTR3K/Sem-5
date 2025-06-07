@@ -35,3 +35,4 @@ def BinarySearch(array, i, j, target):
         return BinarySearch(array, mid + 1, j, target)  # Search right half
 
 ```
+### Time Complexity: O(log n)
