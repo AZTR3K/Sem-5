@@ -13,6 +13,7 @@
 - All elements > `v` are on its right.
 - Now apply Quick Sort recursively on both halves.
 
+## C/C++ Implementation
 ```cpp
 int partition(int array[], int low, int high)
 {
