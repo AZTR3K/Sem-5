@@ -1,0 +1,21 @@
+def count_staircases_memo(n, m, memo):
+    if n == 0:
+        return 1
+    if n < 0 or m == 0:
+        return 0
+
+    if (n, m) in memo:
+        return memo[(n, m)]
+
+    ways = count_staircases_memo(n - m, m - 1, memo) + count_staircases_memo(n, m - 1, memo)
+    memo[(n, m)] = ways
+
+    return ways
+
+def count_staircases(n):
+    memo = {}
+    return count_staircases_memo(n, n - 1, memo)
+
+# Example usage:
+result = count_staircases(11)
+print(f"The number of ways is: {result}")

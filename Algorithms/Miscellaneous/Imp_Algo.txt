@@ -1,0 +1,4 @@
+Genetic Algos and Evolutionary Algos Bio-Inspired Algos
+				     (ACO/ Ant Colony Optimization)
+				     (PSO/ Particle Swarm Optimization)		
+				     (BCO/ Honey Bee Colony Optimization)
