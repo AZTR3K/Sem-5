@@ -17,6 +17,7 @@
 - If array[mid] < target:
 - → Recurse on the right half of the array.
 
+## Python Implementation
 ```python
 def BinarySearch(array, i, j, target):
     if i > j:
