@@ -1,0 +1,18 @@
+PRACTICE QUESTIONS FOR TM-2PDA/3PDA/nPDA
+Double Word
+Even Even – Odd Odd
+MOREA
+a^n b^3n
+a^n b^n c^n d^n e^n f^n
+UNEQUAL
+EQUAL
+MIDDLEA
+ODD/EVEN PALINDROME
+VERY EQUAL ={ abc acb bac cab …}
+DOUBLE FACTORIAL = { an!b n! where n>0 }
+DOUBLE PRIME = { apbp where p is any prime }
+SQUARE = { an where n is a square}
+SQUARE = { an**2 where n>0} = { a aaaa aaaaaaaaa aaaaaaaaaaaaaaaa}
+PRIME’ = { an where n is not a prime }
+PARENTHESIS = { ∆, (), (()), ((())), (())(), ()(()), ()()() }
+a2^n  hint (chop the input into half at every iteration)

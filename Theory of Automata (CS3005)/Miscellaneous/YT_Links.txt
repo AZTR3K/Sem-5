@@ -1,0 +1,36 @@
+--- Kleene's Theroem, Union
+https://www.youtube.com/watch?v=gS4GXTRUfkw&list=PLrb70iTVZjZNkiZE4yfYn8Bf0t-AYXTkD&index=4
+
+--- Kleene's Theorem, Concatenation
+https://www.youtube.com/watch?v=Mx0tijzbzV8&list=PLrb70iTVZjZNkiZE4yfYn8Bf0t-AYXTkD&index=5
+
+--- Kleene's Theorem, Kleene Closure
+https://www.youtube.com/watch?v=_fXyUq1GSII&list=PLrb70iTVZjZNkiZE4yfYn8Bf0t-AYXTkD&index=6
+
+--- RE to Lambda/Epsilon NFA
+https://www.youtube.com/watch?v=84oNUttWlN4
+https://www.youtube.com/watch?v=dyZptpZLwIE
+https://www.youtube.com/watch?v=vcBpcllZCoQ
+https://www.youtube.com/watch?v=Lh0me6M5rN0
+
+--- Lambda/Epsilon NFA to DFA
+https://www.youtube.com/watch?v=4-N3GfHb134
+https://www.youtube.com/watch?v=h4v7x0IMhtI
+
+--- DFA minimization
+https://www.youtube.com/watch?v=0XaGAkY09Wc
+https://www.youtube.com/watch?v=ex9sPLq5CRg
+https://www.youtube.com/watch?v=DV8cZp-2VmM
+
+
+--- CFG
+https://www.youtube.com/watch?v=SlSA9vEXCm4
+https://www.youtube.com/watch?v=5_tfVe7ED3g
+https://www.youtube.com/watch?v=eDAOxyZkl68
+https://www.youtube.com/watch?v=UE0B2io8K5o
+https://www.youtube.com/watch?v=k0EVZTJnEXQ
+
+
+
+--- PDA
+https://www.youtube.com/watch?v=4ejIAmp_Atw

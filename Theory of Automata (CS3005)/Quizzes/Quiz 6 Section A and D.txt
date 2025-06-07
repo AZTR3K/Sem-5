@@ -1,0 +1,7 @@
+Section A
+Design PDA for the language:
+EQUAL-EQUAL
+
+Section D
+Design PDA for the language:
+EVEN-EVEN

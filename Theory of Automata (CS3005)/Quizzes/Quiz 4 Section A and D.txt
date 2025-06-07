@@ -1,0 +1,10 @@
+Section A
+Q1: Prove using Pumping Lemma if (aa)* b a* is a regular language.
+Q2: Design a Mealy Machine for the language that generates a number that is greater than 2.
+           Input      Output
+           00010    00100
+           01100    01110
+
+Section D
+Q1: Prove using Pumping Lemma if the language (aa)* (bb)* is regular or not.
+Q2: Design a Mealy Machine for the language that decrements a given number by 2. Assume that the input number is always greater or equal to 2.

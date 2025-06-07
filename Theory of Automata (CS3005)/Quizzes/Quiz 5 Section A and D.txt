@@ -1,0 +1,17 @@
+Section A
+Convert the following to CNF. You must show all the steps.
+S -> A
+A -> B
+B -> Bb | b
+C -> DD | λ
+D -> aD | CC | F
+F -> aF
+
+Section D
+Convert the following to CNF. You must show all the steps.
+S -> AAA | B
+A -> BBB | A | B
+B -> SS | Bb | b
+C -> DD | λ
+D -> CC | a
+E -> aE

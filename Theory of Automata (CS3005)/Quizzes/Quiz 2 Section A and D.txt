@@ -1,0 +1,11 @@
+Section A
+Convert (ab)*
+1. To NFA
+2. NFA to FA
+3. FA to minimised FA
+
+Section D
+Convert ab* + b
+1. To NFA
+2. NFA to FA
+3. FA to minimised FA
