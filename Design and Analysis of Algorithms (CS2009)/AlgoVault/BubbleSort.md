@@ -31,5 +31,5 @@ void BubbleSort(int array[], int n)
 ```
 ## Time Complexity:
 - O(n) -> Best Case.
-- O(n<<sup>2</sup>) -> Average Case.
-- O(n<<sup>2</sup>) -> Worst Case.
+- O(n<sup>2</sup>) -> Average Case.
+- O(n<sup>2</sup>) -> Worst Case.
