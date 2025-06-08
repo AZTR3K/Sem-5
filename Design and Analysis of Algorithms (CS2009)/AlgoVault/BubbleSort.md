@@ -1,4 +1,4 @@
-# > Bubble Sort
+ > # Bubble Sort
 
 ## Description
 - Repeatedly compare adjacent elements in the array.
