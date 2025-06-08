@@ -1,17 +1,17 @@
 > # Quick Sort
 
 ## Description
-- Choose a **pivot** `v`.
-- Move pointer `p` forward until an element > `v`.
-- Move pointer `q` backward until an element < `v`.
+- Choose a `pivot`.
+- Move pointer `p` forward until an element > `pivot`.
+- Move pointer `q` backward until an element < `pivot`.
 - This partitions elements so greater ones go right, smaller ones go left.
 - Check if `p` and `q` have crossed each other.
 - If not crossed, swap the elements at `p` and `q`.
-- Else, swap the pivot `v` with element at `q`.
+- Else, swap the pivot `pivot` with element at `q`.
 
 - You are done with the first partition.
-- All elements < `v` are on its left.
-- All elements > `v` are on its right.
+- All elements < `pivot` are on its left.
+- All elements > `pivot` are on its right.
 - Now apply Quick Sort recursively on both halves.
 
 ## C/C++ Implementation
