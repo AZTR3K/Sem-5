@@ -50,5 +50,6 @@ void QuickSort(int array[], int low, int high)
 }
 ```
 ### Time Complexity:
+- O(n log n) -> Best Case.
 - O(n log n) -> Average Case.
 - O(n<sup>2</sup>) -> Worst Case.
