@@ -1,5 +1,6 @@
 > # Quick Sort
 
+## Description
 - Choose a **pivot** `v`.
 - Move pointer `p` forward until an element > `v`.
 - Move pointer `q` backward until an element < `v`.

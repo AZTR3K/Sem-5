@@ -1,4 +1,6 @@
-# BinarySearch
+> # BinarySearch
+
+## Description
 - Works on a sorted array.
 - Set initial boundaries i (start) and j (end).
 - Calculate the middle index mid = (i + j) / 2.
@@ -35,4 +37,7 @@ def BinarySearch(array, i, j, target):
         return BinarySearch(array, mid + 1, j, target)  # Search right half
 
 ```
-### Time Complexity: O(log n)
+### Time Complexity:
+- O(1) -> Best Case.
+- O(log n) -> Average Case.
+- O(log n) -> Worst Case.

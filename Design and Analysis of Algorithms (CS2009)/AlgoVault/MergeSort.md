@@ -1,12 +1,14 @@
 > # Merge Sort
 
-- A divide and conquer algorithm.
-
+## Description
 - Divide the array into two halves.
-
-- Recursively sort each half.
-
-- Merge the sorted halves to produce the final sorted array.
+- Recursively sort the left half and the right half.
+- Once sorted, merge the two halves:
+- Create two temporary arrays to hold each half.
+- Use pointers to compare elements from both arrays.
+- Insert the smaller element back into the main array.
+- Repeat until both temporary arrays are exhausted.
+- Continue this divide and merge process until the entire array is sorted.
 
 ## C/C++ Implementation
 ```cpp
