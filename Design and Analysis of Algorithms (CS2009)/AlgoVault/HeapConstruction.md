@@ -26,5 +26,3 @@ void HeapInsert(int heapArray[], int value, int index)
     }
 }
 ```
-
-

@@ -15,6 +15,12 @@ void HeapInsert(int heapArray[], int value, int index)
         }
 
         else
-            break; // Heap property satisfied
+            break;  // Heap property satisfied
     }
+}
+
+int main()
+{
+    cout << "Hello";
+    return 0;
 }
