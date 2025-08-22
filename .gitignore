@@ -8,6 +8,7 @@ __pycache__/
 *.pyd
 *.pdb
 .python-version
+requirements.txt
 
 # Byte-compiled / optimized / DLL files
 *.so
