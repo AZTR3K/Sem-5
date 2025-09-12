@@ -84,3 +84,4 @@ share/python-wheels/
 *.egg
 MANIFEST
 
+crx.data
