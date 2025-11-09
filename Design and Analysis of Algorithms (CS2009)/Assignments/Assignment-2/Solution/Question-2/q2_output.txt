@@ -1,0 +1,24 @@
+Test Case #1
+String Length: 4
+String: CATG
+Max balanced length: 4
+
+
+Test Case #2
+String Length: 6
+String: ATCATG
+Max balanced length: 6
+
+
+Test Case #3
+String Length: 10
+String: ATACGTATGC
+Max balanced length: 10
+
+
+Test Case #4
+String Length: 14
+String: ACGTACGTATATCG
+Max balanced length: 14
+
+

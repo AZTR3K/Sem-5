@@ -1,0 +1,6 @@
+A: 10 50 10
+B: 80 1000 100
+C: 70 1 100
+
+Maximum Happiness recursive: 1170
+Maximum Happiness dynamic: 1170

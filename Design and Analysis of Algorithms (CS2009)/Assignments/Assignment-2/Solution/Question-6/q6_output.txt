@@ -1,0 +1,6 @@
+Recursive: Valid numbers between 1 and 20: 16
+Dynamic: Valid numbers between 1 and 20: 16
+Recursive: Valid numbers between 50 and 200: 97
+Dynamic: Valid numbers between 50 and 200: 97
+Recursive: Valid numbers between 1 and 1000: 512
+Dynamic: Valid numbers between 1 and 1000: 512

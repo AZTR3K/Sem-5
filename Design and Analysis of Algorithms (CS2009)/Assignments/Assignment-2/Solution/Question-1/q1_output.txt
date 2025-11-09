@@ -1,0 +1,30 @@
+Test Case #1
+Matrix Size: 3 x 3
+Matrix:
+1   1   1   
+1   1   1   
+1   1   1   
+Max square length: 3
+
+
+Test Case #2
+Matrix Size: 4 x 4
+Matrix:
+1   0   1   1   
+1   1   1   1   
+0   1   1   1   
+1   1   0   1   
+Max square length: 2
+
+
+Test Case #3
+Matrix Size: 5 x 5
+Matrix:
+1   0   1   0   1   
+1   1   1   1   1   
+1   1   1   0   1   
+0   1   1   1   1   
+1   1   1   1   1   
+Max square length: 2
+
+

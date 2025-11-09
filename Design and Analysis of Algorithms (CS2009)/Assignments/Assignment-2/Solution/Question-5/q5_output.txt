@@ -1,0 +1,6 @@
+Bag Capacity: 5
+Weights: 2 1 3 2 
+Values: 3 2 4 2 
+
+Max profit using recursive: 7
+Max profit using dp: 7
