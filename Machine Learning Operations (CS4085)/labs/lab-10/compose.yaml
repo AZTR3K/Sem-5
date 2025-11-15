@@ -1,0 +1,57 @@
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  mlflow:
+    build:
+      context: ./mlflow_server
+    container_name: mlflow_server
+    restart: unless-stopped
+    ports:
+      - "5001:5000"
+    volumes:
+      # This container needs access to the artifacts
+      - ./mlflow_server/artifacts:/mlflow/artifacts
+      - ./mlflow_server/db_data:/mlflow/db
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+
+  trainer:
+    build:
+      context: ./trainer
+    container_name: model_trainer
+    depends_on:
+      - mlflow
+    volumes:
+      - ./student_performance.csv:/app/student_performance.csv
+      # The trainer is WRITING the model, so it needs
+      # the artifacts folder mounted.
+      - ./mlflow_server/artifacts:/mlflow/artifacts
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+
+  web:
+    build:
+      context: ./web
+    container_name: flask_web_app
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+      - mlflow
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    volumes:
+      # The web app is READING the model, so it
+      # needs the same folder mounted (read-only).
+      - ./mlflow_server/artifacts:/mlflow/artifacts:ro
+
+volumes:
+  mongo-data:
