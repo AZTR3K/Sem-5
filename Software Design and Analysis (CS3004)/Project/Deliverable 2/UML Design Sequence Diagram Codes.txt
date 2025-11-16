@@ -1,0 +1,427 @@
+UC: 01
+@startuml
+title UC-01: Move Player
+
+actor Player
+participant "Game System" as Game
+
+' Step 1
+Player -> Game : 1. Press movement key/joystick
+Game -> Game : 1.1 Translate input → move character
+Game -> Game : 1.2 Update position and play walking/running animation
+
+' Step 2
+Player -> Game : 2. Encounters obstacle
+Game -> Game : 2.1 Stop or trigger jump/climb
+
+' Step 3
+Player -> Game : 3. Performs extended movement (Climb/Double Jump)
+Game -> Game : 3.1 Execute animation and physics update
+Game --> Player : 3.2 Character moves visually on screen
+
+@enduml
+
+
+UC: 02
+@startuml
+title UC-02: Attack Enemy
+
+actor Player
+participant "Game System" as Game
+
+' Step 1
+Player -> Game: 1. Press attack button
+Game -> Game: 1.1 Play attack animation and check collision
+
+' Step 2
+alt Attack connects
+    Game -> Game: 2.1 Apply damage to enemy, reduce health
+else Attack misses
+    Game -> Game: 2.2 No damage registered
+end
+
+' Step 3
+Game -> Player: 3. Show hit or miss feedback (animation, sound)
+
+@enduml
+
+
+UC: 03
+@startuml
+title UC-03: Collect Item
+
+actor Player
+participant "Game System" as Game
+
+' Step 1
+Player -> Game: 1. Move near item
+Game -> Game: 1.1 Highlight item
+
+' Step 2
+Player -> Game: 2. Press "Interact" button
+Game -> Game: 2.1 Remove item from world and add to inventory
+
+' Step 3
+Game -> Player: 3. Show item collected (UI update)
+
+@enduml
+
+
+UC: 04
+@startuml
+title UC-04: Dodge Attacks
+
+actor Player
+participant "Game System" as Game
+participant "Enemy AI" as EnemyAI
+
+== Dodge Initiation ==
+Player -> Game: 1. Press dodge button
+Game -> Game: 1.1 Play dodge animation
+Game -> Game: 1.2 Grant temporary invulnerability frames (i-frames)
+
+== Attack Phase ==
+EnemyAI -> Game: 2. Perform attack targeting player
+Game -> Game: 2.1 Check dodge timing
+alt Dodge successful
+    Game -> EnemyAI: 2.2 Register attack miss
+    Game -> Player: 2.3 Maintain invulnerability
+else Dodge failed
+    Game -> Player: 2.4 Apply damage
+end
+
+== Postcondition ==
+Game -> Game: 3. End invulnerability frames
+
+@enduml
+
+
+UC:05
+@startuml
+title UC-05: Interact with NPCs
+
+actor Player
+participant "Game System" as Game
+participant "NPC (AI Controlled)" as NPC
+
+== Approach ==
+Player -> Game: 1. Move near NPC
+Game -> NPC: 1.1 Detect proximity
+NPC -> Game: 1.1.1 Becomes interactive
+
+== Interaction ==
+Player -> Game: 2. Press interact key/button
+Game -> NPC: 2.1 Trigger interaction
+NPC -> Game: 2.1.1 Send dialogue data
+Game -> Player: 2.2 Display dialogue menu/options
+
+== Postcondition ==
+note right of Game
+Dialogue executed.  
+Possible outcomes:  
+- Start quest  
+- Initiate trade  
+- End conversation
+end note
+
+@enduml
+
+
+UC: 06
+@startuml
+title UC-06: Manage Companion Relationships
+
+actor Player
+participant "Game System" as Game
+participant "Kaelan (Companion)" as Kaelan
+participant "Rhys (Companion)" as Rhys
+
+== Moral Choice / Interaction ==
+Player -> Game: 1. Make moral choice or interact (via UC-17 / UC-05)
+Game -> Kaelan: 1.1 Evaluate approval/disapproval
+Game -> Rhys: 1.2 Evaluate approval/disapproval
+Game -> Game: 1.3 Update relationship status values
+Game -> Game: 1.4 Queue next mission (based on progression meter)
+
+== Dialogue Selection ==
+Player -> Game: 2. Select dialogue option
+Game -> Game: 2.1 Activate corresponding mission path
+
+== Story Progression ==
+Player -> Game: 3. Progress story events
+Game -> Kaelan: 3.1 Adapt future dialogue/behavior
+Game -> Rhys: 3.2 Adapt future dialogue/behavior
+Game -> Player: 3.3 Reflect consequences in story and interactions
+
+== Postcondition ==
+note right of Game
+- Relationship values updated  
+- Dialogue and missions adapt dynamically  
+- Future story events depend on choices
+end note
+
+@enduml
+
+
+UC: 07
+@startuml
+title UC-07: Choose Narrative Path
+
+actor Player
+participant Game
+participant Companions
+
+' Step 1
+Player -> Game: 1. Player makes a moral choice
+Game -> Game: 1.1 System evaluates choice or interaction
+Game -> Companions: 1.2 System updates companion relationship status
+
+' Step 2
+Player -> Game: 2. Player continues gameplay or initiates dialogue
+Game -> Game: 2.1 System activates story events/dialogue/encounters
+Game -> Companions: 2.2 Companions react based on chosen path
+
+' Step 3
+Player -> Game: 3. Player encounters a narrative milestone
+Game -> Game: 3.1 System adapts milestone content to prior choices
+Game -> Player: 3.2 Advance story toward one of two endings
+
+@enduml
+
+
+UC: 08
+@startuml
+title UC-08: Make Moral Choice
+
+actor Player
+participant Game
+participant Companions
+
+' Step 1
+Player -> Game: 1. Player defeats an enemy (via UC-02: Attack Enemy)
+Game -> Game: 1.1 System pauses combat and shows spare/execute prompt
+
+' Step 2
+Player -> Game: 2. Player selects spare or execute option
+Game -> Game: 2.1 System records choice and updates narrative variables
+
+' Step 3
+Player -> Game: 3. Player confirms choice
+Game -> Companions: 3.1 System triggers companion reactions
+Game -> Player: 3.2 Narrative impact (clue or insight)
+
+@enduml
+
+
+UC: 09
+@startuml
+title UC-09: Attack Player
+
+skinparam ParticipantPadding 70
+
+participant "Enemy AI" as EnemyAI
+actor Player
+participant Game
+
+' Step 1
+EnemyAI -> Game: 1. Enemy AI decides to attack
+Game -> EnemyAI: 1.1 Attack animation is triggered
+
+' Step 2
+EnemyAI -> Game: 2. Player in range
+Game -> Player: 2.1 Player health reduced (if not dodged/blocked)
+
+@enduml
+
+
+UC: 10
+@startuml
+title UC-10: Chase Player
+
+actor Player
+participant "Enemy AI" as AI
+
+== Detection Phase ==
+Player -> AI : 1. Player enters detection range
+AI -> AI : 1.1 Switches to chase mode
+
+== Chase Phase ==
+Player -> AI : 2. Player moves away
+AI -> Player : 2.1 Moves closer to player
+
+loop While player in aggro range
+    Player -> AI : 3.1 Update position
+    AI -> Player : 3.2 Continue chase
+end
+
+@enduml
+
+
+UC: 11
+@startuml
+title UC-11: Perform Special Move
+
+actor "Enemy AI" as Enemy
+participant "Game System" as System
+actor "Player" as Player
+
+== Initiation ==
+Enemy -> System : 1. Trigger special move
+System -> System : 1.1 Play special move animation
+
+== Targeting ==
+System -> Player : 2. Target player
+Player -> System : 2.1 Update health/status
+
+== Conditions ==
+note over Enemy,Player
+  Pre-condition: Enemy AI has enough mana/energy.
+  Post-condition: Player receives damage/effects if hit.
+  Dependency: Attack Player
+end note
+
+@enduml
+
+
+UC: 12
+@startuml
+title UC-12: Navigate Menu
+
+actor "Player" as Player
+participant "Game System" as Game
+
+== Menu Access ==
+Player -> Game : 1. Open main menu / pause menu
+Game -> Game : 1.1 Display menu options\n(e.g., Start, Settings, Quit)
+
+== Navigation ==
+Player -> Game : 2. Scroll or select an option
+Game -> Game : 2.1 Highlight selected option
+
+== Selection ==
+Player -> Game : 3. Confirm selection
+Game -> Game : 3.1 Execute chosen option\n(e.g., open settings, start game, resume)
+
+== Conditions ==
+note over Player,Game
+  Pre-condition: Game is running, menu accessible.
+  Post-condition: Desired menu option selected.
+  Dependency: None.
+end note
+@enduml
+
+
+UC: 13
+@startuml
+title UC-13: Load Textures
+
+actor Player
+participant Game
+participant "Game Engine" as Engine
+participant "Texture Manager" as TextureMgr
+participant "Renderer" as Renderer
+
+' Step 1
+Player -> Game: 1. Start new game or load level
+Game -> Engine: 1.1 Begin loading texture files
+Engine -> TextureMgr: 1.2 Load texture assets into memory
+TextureMgr --> Engine: 1.3 Return loaded textures
+
+' Step 2
+Engine -> Game: 2. Notify loading progress
+Game -> Player: 2.1 Update progress bar/indicator
+
+' Step 3
+Player -> Game: 3. Wait until loading completes
+Game -> Renderer: 3.1 Apply textures to models, environment, and UI
+Renderer --> Player: 3.2 Display textured scene
+
+@enduml
+
+
+UC: 14
+@startuml
+title UC-14: Choose Difficulty
+
+actor Player
+participant Game
+participant "Menu System" as Menu
+participant "Game Settings" as Settings
+participant "AI Manager" as AI
+
+' Step 1
+Player -> Game: 1. Open Settings or New Game menu
+Game -> Menu: 1.1 Display difficulty options (Easy, Normal, Hard)
+
+' Step 2
+Player -> Menu: 2. Highlight difficulty option
+Menu -> Game: 2.1 Notify selected option
+Game -> Menu: 2.2 Display description of difficulty
+
+' Step 3
+Player -> Menu: 3. Confirm selection
+Menu -> Game: 3.1 Send chosen difficulty
+
+' Step 4
+Game -> Settings: 4. Update difficulty parameters
+Settings -> AI: 4.1 Adjust AI behavior and damage rules
+Settings -> Game: 4.2 Update progression parameters
+
+@enduml
+
+
+UC: 15
+@startuml
+title UC-15: Manage State
+
+actor Player
+participant Game
+participant "Save/Load Interface" as Interface
+participant "File System" as FileSys
+
+' Step 1
+Player -> Game: 1. Select "Save" or "Load"
+Game -> Interface: 1.1 Open save/load interface
+
+' Step 2
+Player -> Interface: 2. Choose save slot or file
+Interface -> Game: 2.1 Send selected slot info
+Game -> FileSys: 2.2 Retrieve slot details
+FileSys --> Game: 2.3 Return progress, time, location
+Game -> Interface: 2.4 Display slot details
+
+' Step 3
+Player -> Interface: 3. Confirm choice
+Interface -> Game: 3.1 Send confirmation
+Game -> FileSys: 3.2 Save or Load player data
+FileSys --> Game: 3.3 Confirm operation
+Game -> Player: 3.4 Notify save/load completion
+
+@enduml
+
+
+UC: 16
+@startuml
+title UC-16: Set Story Direction
+
+actor Player
+participant Game
+participant "Companion Manager" as Companions
+participant "Story Engine" as Story
+
+' Step 1
+Player -> Game: 1. Make moral choice / interact with companion
+Game -> Companions: 1.1 Evaluate choice and update relationship status
+Companions --> Game: 1.1.1 Return updated relationship data
+
+' Step 2
+Game -> Story: 2. Update narrative direction based on choice
+Story --> Game: 2.1 Provide next act or scene alignment
+
+' Step 3
+Player -> Game: 3. Continue gameplay
+Game -> Story: 3.1 Adapt cutscenes, dialogue, and encounters
+Story -> Game: 3.1.1 Trigger act-specific content (The Journey, The Revelation)
+Game -> Player: 3.2 Present narrative progression
+
+@enduml
