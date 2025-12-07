@@ -1,4 +1,4 @@
-> # Count Sort
+# Count Sort
 
 ## Description
 - Suitable for sorting non-negative integers within a known range `0` to `k-1`.
@@ -37,4 +37,3 @@ void CountSort(int array[], int k, int n)
 - O(n + k) → Best Case.
 - O(n + k) → Average Case.
 - O(n + k) → Worst Case.
-

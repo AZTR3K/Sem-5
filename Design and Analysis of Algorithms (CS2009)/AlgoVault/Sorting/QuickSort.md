@@ -22,17 +22,16 @@ int partition(int array[], int low, int high)
     int p = low + 1;
     int q = high;
 
-    while(p <= q)
+    while (p <= q)
     {
-        while(array[p] < pivot && p <= high)
+        while (p <= high && array[p] < pivot)
             p++;
 
-        while(array[q] >= pivot && q >= low)
+        while (q > low && array[q] >= pivot)
             q--;
 
-        if(p < q)
+        if (p < q)
             swap(array[p], array[q]);
-
     }
 
     swap(array[low], array[q]);
