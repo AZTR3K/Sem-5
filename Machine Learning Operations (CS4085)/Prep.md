@@ -452,7 +452,7 @@ uvicorn app:app --reload
 ### Dockerfile
 ```dockerfile
 # Small python base image
-From python:3.11-slim
+FROM python:3.11-slim
 # Copy current directory contents to leverage Docker cache
 COPY . /app
 # Set working directory
